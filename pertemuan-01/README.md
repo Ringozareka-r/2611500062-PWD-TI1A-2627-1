@@ -185,4 +185,5 @@ Dari pembelajaran P1, saya memahami bahwa pengembangan web terdiri dari beberapa
 
 Pemahaman mengenai **arsitektur klien-peladen serta HTTP Request dan Response** juga menjadi dasar penting untuk memahami bagaimana browser dan server berkomunikasi dalam sebuah aplikasi web.
 
-
+tes tes tes tes <bd
+>
