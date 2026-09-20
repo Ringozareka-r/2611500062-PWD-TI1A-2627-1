@@ -184,6 +184,3 @@ Contohnya pada website data mahasiswa:
 Dari pembelajaran P1, saya memahami bahwa pengembangan web terdiri dari beberapa teknologi yang memiliki fungsi berbeda tetapi saling terhubung. **HTML** berfungsi sebagai struktur, **CSS** mengatur tampilan, **JavaScript** memberikan interaksi, **PHP** menangani proses di server, dan **MySQL** digunakan untuk mengelola data.
 
 Pemahaman mengenai **arsitektur klien-peladen serta HTTP Request dan Response** juga menjadi dasar penting untuk memahami bagaimana browser dan server berkomunikasi dalam sebuah aplikasi web.
-
-tes tes tes tes <bd
->
