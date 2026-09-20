@@ -9,4 +9,4 @@ Tahun Ajaran: 2026/2027 Gasal<br>
 
   
 
-![Logo ISB Atma Luhur](Logo_ISB_atma_luhur_final.png) <br>
+![Logo ISB Atma Luhur](Logo_ISB_atma_luhur_final.png)
