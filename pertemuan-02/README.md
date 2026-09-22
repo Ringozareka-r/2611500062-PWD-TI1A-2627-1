@@ -20,4 +20,6 @@ HTML5 yang valid dan elemen semantik.
 ## Riwayat
 
 Commit dan push dilakukan secara bertahap selama proses
-pengembangan.
+pengembangan.x
+
+2. bikin emeet , taklengkap html
