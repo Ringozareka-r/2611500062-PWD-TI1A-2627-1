@@ -22,5 +22,6 @@ HTML5 yang valid dan elemen semantik.
 Commit dan push dilakukan secara bertahap selama proses
 pengembangan.x
 
-2. bikin emeet , taklengkap html<bd
+2. bikin emeet , taklengkap html<bd>
+
    >
