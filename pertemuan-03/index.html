@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Mahasiswa</title>
+    <title>Profil Ringo Zareka Ramadan</title>
+
+    <style>
+        /* Selector elemen */
+        body {
+            color: #111827;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        /* Selector class */
+        .form-group {
+            margin: 12px 0;
+        }
+
+        .input-form {
+            width: 300px;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #94a3b8;
+        }
+
+        /* Selector ID */
+        #contact {
+            padding: 15px;
+            border: 1px solid #94a3b8;
+            background-color: #f8fafc;
+        }
+
+        #contact label {
+            font-weight: bold;
+        }
+
+        #contact button {
+            padding: 8px 14px;
+            margin-top: 10px;
+            border: 1px solid #003366;
+        }
+
+        #contact textarea {
+            width: 300px;
+            padding: 8px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,75 +65,211 @@
         <h1>Profil Mahasiswa</h1>
 
         <nav>
-            <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
+            <a href="#home">Beranda</a> |
+            <a href="#about">Tentang</a> |
+            <a href="#contact">Kontak</a>
         </nav>
     </header>
 
     <main>
 
+        <!-- PROFIL -->
         <section id="home">
-            <h2>Selamat Datang</h2>
+            <h2>Beranda</h2>
+
+            <img
+                src="img/foto-profil.jpeg" alt="Foto profil" width="200">
 
             <p>
                 Halo, saya Ringo Zareka Ramadan.
-                Saya mahasiswa Program Studi Sistem Informasi
-                dan sedang mempelajari Pemrograman Web Dasar.
+                Saya mahasiswa yang sedang mempelajari Pemrograman Web Dasar.
             </p>
-
-            <img
-              src="img/foto-profil.jpeg" alt="Foto profil" width="200">
-            >
         </section>
 
+        <!-- TENTANG -->
         <section id="about">
             <h2>Tentang Saya</h2>
 
-            <article>
-                <h3>Profil Singkat</h3>
-
-                <p>
-                    Nama: Ringo Zareka Ramadan<br>
-                    NIM: 2611500062<br>
-                    Kelompok: TI1A
-                </p>
-
-                <h3>Target Belajar</h3>
-
-                <ol>
-                    <li>Memahami struktur HTML5.</li>
-                    <li>Menyusun halaman web semantik.</li>
-                    <li>Memvalidasi dokumen HTML.</li>
-                </ol>
-
-                <h3>Keahlian</h3>
-
-                <ul>
-                    <li>HTML</li>
-                    <li>Web</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="contact">
-            <h2>Kontak</h2>
+            <p>
+                Nama: Ringo Zareka Ramadan
+            </p>
 
             <p>
-                Kunjungi
-                <a href="https://github.com/Ringozareka-r">
-                    profil GitHub saya
-                </a>.
+                NIM: 2611500062
             </p>
+
+            <p>
+                Kelompok: TI1A
+            </p>
+
+            <h3>Pendidikan</h3>
+
+            <ul>
+                <li>SMK</li>
+                <li>Universitas</li>
+            </ul>
+
+            <h3>Keahlian</h3>
+
+            <ul>
+                <li>HTML</li>
+                <li>Web</li>
+            </ul>
+        </section>
+
+        <!-- FORM KONTAK -->
+        <section id="contact">
+
+            <h2>Kontak</h2>
+
+            <form action="index.html" method="get">
+
+                <!-- Input text -->
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label><br>
+
+                    <input
+                        class="input-form"
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        minlength="3"
+                        maxlength="50"
+                        required
+                        placeholder="Masukkan nama lengkap"
+                    >
+                </div>
+
+                <!-- Input email -->
+                <div class="form-group">
+                    <label for="email">Email</label><br>
+
+                    <input
+                        class="input-form"
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="nama@email.com"
+                    >
+                </div>
+
+                <!-- Input number -->
+                <div class="form-group">
+                    <label for="semester">Semester</label><br>
+
+                    <input
+                        class="input-form"
+                        type="number"
+                        id="semester"
+                        name="semester"
+                        min="1"
+                        max="14"
+                        required
+                        placeholder="1 - 14"
+                    >
+                </div>
+
+                <!-- Input date -->
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Kunjungan</label><br>
+
+                    <input
+                        class="input-form"
+                        type="date"
+                        id="tanggal"
+                        name="tanggal"
+                        required
+                    >
+                </div>
+
+                <!-- Radio -->
+                <div class="form-group">
+                    <label>Jenis Pesan</label><br>
+
+                    <input
+                        type="radio"
+                        id="pertanyaan"
+                        name="jenis_pesan"
+                        value="pertanyaan"
+                        required
+                    >
+                    <label for="pertanyaan">Pertanyaan</label>
+
+                    <br>
+
+                    <input
+                        type="radio"
+                        id="saran"
+                        name="jenis_pesan"
+                        value="saran"
+                    >
+                    <label for="saran">Saran</label>
+                </div>
+
+                <!-- Select -->
+                <div class="form-group">
+                    <label for="prodi">Program Studi</label><br>
+
+                    <select
+                        class="input-form"
+                        id="prodi"
+                        name="prodi"
+                        required
+                    >
+                        <option value="">-- Pilih Program Studi --</option>
+                        <option value="SI">Sistem Informasi</option>
+                        <option value="TI">Teknik Informatika</option>
+                    </select>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-group">
+                    <input
+                        type="checkbox"
+                        id="minat"
+                        name="minat"
+                        value="HTML"
+                    >
+
+                    <label for="minat">
+                        Saya tertarik dengan HTML
+                    </label>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label for="pesan">Pesan</label><br>
+
+                    <textarea
+                        id="pesan"
+                        name="pesan"
+                        rows="5"
+                        placeholder="type your feedback here..."
+                    ></textarea>
+                </div>
+
+                <!-- Button -->
+                <button type="submit">
+                    Kirim
+                </button>
+
+                <button type="reset">
+                    Batal
+                </button>
+
+            </form>
+
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Ringo Zareka Ramadan - 2611500062</p>
+        <p>
+            &copy; 2026 Ringo Zareka Ramadan - 2611500062
+        </p>
     </footer>
 
 </body>
+
 </html>
