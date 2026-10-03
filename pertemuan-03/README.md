@@ -58,4 +58,4 @@
 
 ## GitHub Pages
 
-URL: [https://github.com/Ringozareka-r/2611500062-PWD-TI1A-2627-1/tree/main/pertemuan-03]
+URL: [ [text](https://ringozareka-r.github.io/2611500062-PWD-TI1A-2627-1/pertemuan-03/index.html) ]
