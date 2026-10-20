@@ -131,3 +131,24 @@ footer {
         gap: 16px;
     }
 }
+/* Navigasi interaktif untuk layar HP */
+#navToggle {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #navToggle {
+        display: block;
+        margin-top: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    #navMenu {
+        display: none;
+    }
+
+    #navMenu.nav-open {
+        display: block;
+    }
+}

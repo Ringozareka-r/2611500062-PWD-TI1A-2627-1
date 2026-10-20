@@ -7,8 +7,8 @@ Deskripsi
 Dokumentasi pengembangan halaman web pada P5, meliputi JavaScript, DOM, event listener, interaksi
 navigasi, dan validasi formulir sisi klien.
 Fitur dan Pengembangan
-[Nama fitur/tahap]: [Penjelasan singkat perubahan yang dilakukan.]
-[Nama fitur/tahap]: [Penjelasan singkat perubahan yang dilakukan.]
+[melakukan tes connect js ]: [testing pakah java script bisa di jalankan .]
+[melakukan praktik DOM]: [Penjelasan singkat perubahan yang dilakukan.]
 Tambahkan entri setiap kali ada perkembangan penting pada proyek.
 Pengujian
 [Fitur yang diuji]: [Langkah pengujian dan hasil aktual.]
@@ -18,3 +18,18 @@ Riwayat Pengembangan
 Catat perkembangan melalui commit Git yang bermakna.
 [Pesan commit]: [Ringkasan perubahan dan hasil pengujiannya.]
 [Pesan commit]: [Ringkasan perubahan dan hasil pengujiannya.]
+
+### 1. Navigasi Responsif
+
+**Perubahan:**
+- Menambahkan tombol hamburger dengan ID `navToggle`.
+- Menambahkan ID `navMenu` pada elemen navigasi.
+- Menggunakan JavaScript untuk membuka dan menutup menu.
+- Mengatur atribut `aria-expanded` dan `aria-label` sesuai kondisi menu.
+- Menambahkan CSS responsif agar menu dapat dibuka dan ditutup pada layar berukuran kecil.
+
+**Hasil Pengujian:**
+- Tombol Menu berhasil diklik.
+- Menu navigasi berhasil dibuka dan ditutup.
+- Event listener JavaScript berhasil terpasang.
+- Pengujian dilakukan pada tampilan responsif dengan lebar 400 px.
