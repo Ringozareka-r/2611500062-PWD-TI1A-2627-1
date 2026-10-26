@@ -8,9 +8,9 @@ body {
     color: #111827;
     font-family: Arial, sans-serif;
     margin: 20px;
+    line-height: 1.5;
 }
 
-/* Judul */
 h1 {
     margin-bottom: 10px;
 }
@@ -27,7 +27,7 @@ header {
     margin-bottom: 20px;
 }
 
-/* Navigasi Flexbox */
+/* Navigasi */
 nav ul {
     display: flex;
     flex-direction: column;
@@ -45,25 +45,25 @@ nav a {
     text-decoration: none;
 }
 
-/* CSS Grid */
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
+
+/* Layout */
 main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
 }
 
-/* Section */
 section {
     background-color: white;
     border: 1px solid #94a3b8;
     padding: 20px;
 }
 
-/* Home */
 #home {
-    background-color: white;
-    border: 1px solid #94a3b8;
-    padding: 20px;
     margin: 0;
 }
 
@@ -78,16 +78,23 @@ section {
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #94a3b8;
+    border-radius: 4px;
+    font: inherit;
 }
 
-/* Contact */
+fieldset.form-group {
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+}
+
 #contact {
     padding: 15px;
     border: 1px solid #94a3b8;
     background-color: #f8fafc;
 }
 
-#contact label {
+#contact label,
+#contact legend {
     font-weight: bold;
 }
 
@@ -95,13 +102,33 @@ section {
     padding: 8px 14px;
     margin-top: 10px;
     border: 1px solid #003366;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 #contact textarea {
-    width: 300px;
-    max-width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    display: block;
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-feedback {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.form-feedback-error {
+    color: #b91c1c;
+}
+
+.form-feedback-success {
+    color: #166534;
+}
+
+#charCount {
+    display: block;
+    color: #475569;
+    font-size: 0.875rem;
 }
 
 /* Footer */
@@ -113,9 +140,12 @@ footer {
     text-align: center;
 }
 
-/* Responsive Desktop */
-@media (min-width: 768px) {
+/* Desktop */
+#navToggle {
+    display: none;
+}
 
+@media (min-width: 768px) {
     main {
         grid-template-columns: 1fr 1fr;
     }
@@ -131,11 +161,8 @@ footer {
         gap: 16px;
     }
 }
-/* Navigasi interaktif untuk layar HP */
-#navToggle {
-    display: none;
-}
 
+/* Navigasi interaktif untuk layar HP */
 @media (max-width: 600px) {
     #navToggle {
         display: block;
@@ -146,6 +173,7 @@ footer {
 
     #navMenu {
         display: none;
+        margin-top: 12px;
     }
 
     #navMenu.nav-open {
