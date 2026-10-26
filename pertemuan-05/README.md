@@ -1,61 +1,42 @@
-# pertemuan-05
-1. menambahkan file index.html , style.css , img ke dalam folder p5
+# Pertemuan 05 — JavaScript Dasar, DOM, Event, dan Validasi Sisi Klien
 
-P5 - JavaScript Dasar, DOM, Event, dan Validasi Sisi Klien
+**Mahasiswa:** Ringo Zareka Ramadan  
+**NIM:** 2611500062  
+**Kelompok:** TI1A
 
 ## Deskripsi
-Dokumentasi pengembangan halaman web pada P5, meliputi JavaScript, DOM, event listener, interaksi navigasi, dan validasi formulir sisi klien.
+Pada pertemuan ini, halaman profil mahasiswa dikembangkan dengan JavaScript untuk mengatur navigasi responsif dan memvalidasi formulir kontak. Tampilan dibuat menggunakan HTML dan CSS.
 
-## Fitur dan Pengembangan
-[melakukan tes connect js ]: [testing pakah java script bisa di jalankan .]
+## Berkas
+- `index.html` — struktur halaman profil dan formulir kontak.
+- `style.css` — tata letak, gaya formulir, dan tampilan responsif.
+- `script.js` — interaksi navigasi, validasi formulir, dan penghitung karakter.
+- `img/foto-profil.png` — gambar profil.
 
-[melakukan praktik DOM]: [Penjelasan singkat perubahan yang dilakukan.]
+## Fitur
+- Navigasi hamburger untuk layar kecil.
+- Atribut aksesibilitas `aria-expanded` dan `aria-label ikut diperbarui saat menu dibuka atau ditutup.
+- Validasi nama (3–50 karakter), email, semester (bilangan bulat 1–14), tanggal kunjungan, jenis pesan, topik minat, program studi, dan pesan.
+- Pesan formulir ditampilkan menggunakan kelas CSS untuk status kesalahan atau berhasil.
+- Pesan validasi dibersihkan ketika pengguna mulai mengubah input atau menekan tombol Batal.
+- Penghitung karakter pesan dengan batas 300 karakter.
 
-Tambahkan entri setiap kali ada perkembangan penting pada proyek.
+## Cara Menjalankan
+1. Buka folder `pertemuan-05`.
+2. Buka `index.html` menggunakan browser.
+3. Coba tombol Menu pada lebar layar kecil.
+4. Isi formulir dengan data yang salah untuk melihat validasi, lalu isi semua kolom dengan data yang benar.
+5. Tekan tombol Batal untuk mengosongkan formulir.
 
-## Pengujian
-[Fitur yang diuji]: [Langkah pengujian dan hasil aktual.]
-
-[Fitur yang diuji]: [Langkah pengujian dan hasil aktual.]
-
-Perbarui bagian ini setelah melakukan pengujian atau debugging yang relevan.
+## Checklist Pengujian
+- [ ] Menu navigasi bisa dibuka dan ditutup pada layar kecil.
+- [ ] Nama kurang dari 3 atau lebih dari 50 karakter ditolak.
+- [ ] Email tidak valid ditolak.
+- [ ] Semester di luar rentang 1–14 atau bukan bilangan bulat ditolak.
+- [ ] Tanggal, jenis pesan, program studi, dan minimal satu topik wajib dipilih.
+- [ ] Pesan wajib diisi dan dibatasi maksimal 300 karakter.
+- [ ] Pesan kesalahan dibersihkan saat input berubah.
+- [ ] Tombol Batal mereset formulir dan pesan umpan balik.
 
 ## Riwayat Pengembangan
-Catat perkembangan melalui commit Git yang bermakna.
-
-[Pesan commit]: [Ringkasan perubahan dan hasil pengujiannya.]
-
-[Pesan commit]: [Ringkasan perubahan dan hasil pengujiannya.]
-
-### 1. Navigasi Responsif
-
-**Perubahan:**
-- Menambahkan tombol hamburger dengan ID `navToggle`.
-- Menambahkan ID `navMenu` pada elemen navigasi.
-- Menggunakan JavaScript untuk membuka dan menutup menu.
-- Mengatur atribut `aria-expanded` dan `aria-label` sesuai kondisi menu.
-- Menambahkan CSS responsif agar menu dapat dibuka dan ditutup pada layar berukuran kecil.
-
-**Hasil Pengujian:**
-- Tombol Menu berhasil diklik.
-- Menu navigasi berhasil dibuka dan ditutup.
-- Event listener JavaScript berhasil terpasang.
-- Pengujian dilakukan pada tampilan responsif dengan lebar 400 px.
-
-### Validasi Form
-
-Menambahkan validasi pada form kontak menggunakan JavaScript.
-
-Yang ditambahkan:
-- Memeriksa nama dan email.
-- Memeriksa semester dan tanggal kunjungan.
-- Memeriksa jenis pesan dan pilihan minat.
-- Memeriksa program studi dan isi pesan.
-- Menampilkan pesan jika data belum sesuai atau sudah valid.
-- Mengosongkan pesan validasi saat tombol Batal ditekan.
-
-Pengujian:
-- Form kosong dan data yang tidak sesuai diuji.
-- Validasi nama, email, semester, tanggal, jenis pesan, minat, program studi, dan pesan diuji.
-- Form dengan data yang benar berhasil divalidasi.
-- Tombol Batal berhasil mengosongkan form dan pesan validasi.
+Catat perubahan berikutnya menggunakan pesan commit yang menjelaskan perubahan secara singkat. Checklist pengujian perlu ditandai setelah pengujian benar-benar dilakukan.
