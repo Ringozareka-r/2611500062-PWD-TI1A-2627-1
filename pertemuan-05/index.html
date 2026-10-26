@@ -10,18 +10,12 @@
     <header>
         <div class="header-top">
             <h1>Profil Mahasiswa</h1>
-            <button
-                class="nav-toggle"
-                id="navToggle"
-                type="button"
-                aria-label="Buka navigasi"
-                aria-controls="navMenu"
-                aria-expanded="false"
-            >
+            <button class="nav-toggle" id="navToggle" type="button"
+                aria-label="Buka navigasi" aria-controls="navMenu" aria-expanded="false">
                 &#9776;
             </button>
         </div>
-        <nav>
+        <nav aria-label="Navigasi utama">
             <ul id="navMenu">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
@@ -33,7 +27,7 @@
     <main>
         <section id="home">
             <h2>Selamat Datang</h2>
-            <p>Halo, saya Ringo Zareka Ramadan. Saya sedang mempelajari Pemrograman Web Dasar.</p>
+            <p>Halo, saya Ringo Zareka Ramadan, mahasiswa Program Studi Teknik Informatika di ISB Atma Luhur. Saat ini saya sedang mempelajari Pemrograman Web Dasar.</p>
             <img src="img/foto-profil.png" alt="Foto profil Ringo Zareka Ramadan" />
         </section>
 
@@ -41,73 +35,73 @@
             <h2>Tentang Saya</h2>
             <article>
                 <h3>Profil Singkat</h3>
-                <p>Saya mahasiswa Program Studi Teknik Informatika.</p>
+                <p>Nama: Ringo Zareka Ramadan</p>
                 <p>NIM: 2611500062</p>
-                <p>Kelompok: TI1A</p>
+                <p>Program Studi: Teknik Informatika</p>
+                <p>Kampus: ISB Atma Luhur</p>
+                <p>Kelas: TI1A</p>
                 <h3>Target Belajar</h3>
                 <ol>
                     <li>Memahami struktur HTML5.</li>
                     <li>Menyusun halaman web semantik.</li>
-                    <li>Memvalidasi dokumen HTML.</li>
+                    <li>Mengatur tampilan halaman menggunakan CSS.</li>
+                    <li>Membuat interaksi sederhana menggunakan JavaScript.</li>
                 </ol>
             </article>
         </section>
 
         <section id="contact">
             <h2>Kontak</h2>
-            <p>Kunjungi <a href="https://github.com/Ringozareka-r">profil GitHub saya</a>.</p>
-            <form id="contactForm" action="index.html" method="get" novalidate>
+            <p>Kunjungi <a href="https://github.com/ringozareka-r/2611500062-PWD-TI1A-2627-1" target="_blank" rel="noopener noreferrer">repository GitHub saya</a>.</p>
+            <form id="contactForm">
                 <div class="form-group">
-                    <label for="nama">Nama Lengkap</label><br />
+                    <label for="nama">Nama Lengkap</label>
                     <input class="input-form" type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" minlength="3" maxlength="50" required />
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label><br />
+                    <label for="email">Email</label>
                     <input class="input-form" type="email" id="email" name="email" placeholder="nama@email.com" required />
                 </div>
                 <div class="form-group">
-                    <label for="semester">Semester</label><br />
-                    <input class="input-form" type="number" id="semester" name="semester" min="1" max="14" step="1" required />
+                    <label for="semester">Semester</label>
+                    <input class="input-form" type="number" id="semester" name="semester" min="1" max="14" value="1" required />
                 </div>
                 <div class="form-group">
-                    <label for="tanggal">Tanggal Kunjungan</label><br />
+                    <label for="tanggal">Tanggal Kunjungan</label>
                     <input class="input-form" type="date" id="tanggal" name="tanggal" required />
                 </div>
+                <fieldset class="form-group">
+                    <legend>Jenis Pesan</legend>
+                    <label class="choice"><input type="radio" id="pertanyaan" name="jenis_pesan" value="pertanyaan" required /> Pertanyaan</label>
+                    <label class="choice"><input type="radio" id="saran" name="jenis_pesan" value="saran" /> Saran</label>
+                </fieldset>
+                <fieldset class="form-group">
+                    <legend>Topik yang Diminati</legend>
+                    <label class="choice"><input type="checkbox" id="minat-html" name="minat" value="HTML" /> HTML</label>
+                    <label class="choice"><input type="checkbox" id="minat-css" name="minat" value="CSS" /> CSS</label>
+                </fieldset>
                 <div class="form-group">
-                    <p>Jenis Pesan</p>
-                    <input type="radio" id="pertanyaan" name="jenis_pesan" value="pertanyaan" required />
-                    <label for="pertanyaan">Pertanyaan</label>
-                    <input type="radio" id="saran" name="jenis_pesan" value="saran" />
-                    <label for="saran">Saran</label>
-                </div>
-                <div class="form-group">
-                    <p>Topik yang Diminati</p>
-                    <input type="checkbox" id="minat-html" name="minat" value="HTML" />
-                    <label for="minat-html">HTML</label>
-                    <input type="checkbox" id="minat-css" name="minat" value="CSS" />
-                    <label for="minat-css">CSS</label>
-                </div>
-                <div class="form-group">
-                    <label for="prodi">Program Studi</label><br />
+                    <label for="prodi">Program Studi</label>
                     <select class="input-form" id="prodi" name="prodi" required>
                         <option value="">-- Pilih Program Studi --</option>
                         <option value="SI">Sistem Informasi</option>
-                        <option value="TI">Teknik Informatika</option>
+                        <option value="TI" selected>Teknik Informatika</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="pesan">Pesan</label><br />
+                    <label for="pesan">Pesan</label>
                     <textarea class="input-form" id="pesan" name="pesan" maxlength="300" placeholder="Tulis pesan Anda" required></textarea>
+                    <small>Maksimal 300 karakter.</small>
                 </div>
                 <button type="submit">Kirim</button>
-                <button type="reset">Batal</button>
-                <p id="formFeedback"></p>
+                <button type="reset" class="button-secondary">Batal</button>
+                <p id="formFeedback" role="status" aria-live="polite"></p>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Ringo Zareka Ramadan - 2611500062</p>
+        <p>&copy; 2026 Ringo Zareka Ramadan | NIM 2611500062</p>
     </footer>
     <script src="script.js"></script>
 </body>
