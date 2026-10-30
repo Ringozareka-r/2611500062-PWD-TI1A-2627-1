@@ -11,7 +11,7 @@ $statusAktif = true;
 $catatanTambahan = null;
 
 const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
-const PROFIL_GITHUB = ""; // Isi dengan username GitHub milik sendiri.
+const PROFIL_GITHUB = ""; // https://github.com/Ringozareka-r/2611500062-PWD-TI1A-2627-1
 
 // Bagian 2: Operator
 $batasSemester = 8;
