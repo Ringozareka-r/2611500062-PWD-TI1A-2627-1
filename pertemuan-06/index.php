@@ -1,242 +1,243 @@
-<!DOCTYPE html>
+<?php
+// P6: PHP dasar dan pemrograman sisi peladen
+// Bagian 1: Variabel dan konstanta
+$nim = "2611500062";
+$namaMahasiswa = "Ringo Zareka Ramadan";
+$programStudi = "TI";
+$tahunAkademik = "2026/2027";
+$semester = 1;
+$ipk = null;
+$statusAktif = true;
+$catatanTambahan = null;
+
+const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
+const PROFIL_GITHUB = ""; // Isi dengan username GitHub milik sendiri.
+
+// Bagian 2: Operator
+$batasSemester = 8;
+$sisaSemester = $batasSemester - $semester;
+$semesterValid = $semester >= 1 && $semester <= $batasSemester;
+$statusSemester = ($semesterValid && $statusAktif) ? "Sesuai rentang" : "Perlu diperiksa";
+
+// Bagian 3: Percabangan if-elseif-else
+if ($semester < 3) {
+	$keteranganSemester = "Semester awal";
+} elseif ($semester <= 6) {
+	$keteranganSemester = "Semester menengah";
+} else {
+	$keteranganSemester = "Semester akhir";
+}
+
+$namaProdi = ($programStudi == "SI") ? "Sistem Informasi" : (($programStudi == "TI") ? "Teknik Informatika" : "Lainnya");
+
+// Bagian 4: Percabangan switch-case-default
+switch ($programStudi) {
+	case "SI":
+		$fokusProgramStudi = "Sistem informasi dan proses bisnis";
+		break;
+	case "TI":
+		$fokusProgramStudi = "Komputasi dan pengembangan perangkat lunak";
+		break;
+	default:
+		$fokusProgramStudi = "Belum ditentukan";
+}
+?>
+<!doctype html>
 <html lang="id">
 
 <head>
-     <link rel="stylesheet" href="style.css" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Ringo Zareka Ramadan</title>
-
-
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Profil Mahasiswa</title>
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+	<header>
+		<div class="header-top">
+			<h1>Profil Mahasiswa</h1>
 
-    <header>
-<h1>Profil Mahasiswa</h1>
+			<button
+				class="nav-toggle"
+				id="navToggle"
+				type="button"
+				aria-label="Buka navigasi"
+				aria-controls="navMenu"
+				aria-expanded="false">
+				&#9776;
+			</button>
+		</div>
 
-    <button
-        type="button"
-        id="navToggle"
-        aria-label="Buka navigasi"
-        aria-expanded="false"
-        aria-controls="navMenu"
-    >
-        ☰ Menu
-    </button>
+		<nav>
+			<ul id="navMenu">
+				<li><a href="#home">Beranda</a></li>
+				<li><a href="#about">Tentang</a></li>
+				<li><a href="#contact">Kontak</a></li>
+			</ul>
+		</nav>
+	</header>
 
-    <nav id="navMenu">
-        <ul>
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-    </nav>
-       
-    </header>
+	<main>
+		<section id="home">
+			<h2>Selamat Datang</h2>
+			<p>Halo, saya <strong><?php echo $namaMahasiswa; ?></strong>. Saya sedang mempelajari matakuliah <strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo $tahunAkademik; ?>.</p>
 
-    <main>
+			<img src="img/foto-profil.jpg" alt="Foto profil Ringo Zareka Ramadan" />
+		</section>
 
-        <!-- PROFIL -->
-        <section id="home">
-            <h2>Beranda</h2>
+		<section id="about">
+			<h2>Tentang Saya</h2>
 
-            <img
-                src="img/foto-profil.png" alt="Foto profil" width="200">
+			<article>
+				<h3>Profil Singkat</h3>
+				<p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
+				<p>Fokus program studi: <?php echo $fokusProgramStudi; ?></p>
+				<p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
+				<p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
+				<p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
+				<p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
+				<p>IPK: <?php echo $ipk === null ? "Belum diisi" : number_format($ipk, 2, ',', '.'); ?></p>
+				<p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan; ?></p>
 
-            <p>
-                Halo, saya Ringo Zareka Ramadan.
-                Saya mahasiswa yang sedang mempelajari Pemrograman Web Dasar.
-            </p>
-        </section>
+				<h3>Target Belajar (Perulangan for)</h3>
+				<ol>
+					<?php
+					// Perulangan for tanpa array; materi larik dibahas pada P9.
+					for ($i = 1; $i <= 5; $i++) {
+						echo "<li>Target belajar ke-" . $i . ": ";
+						switch ($i) {
+							case 1:
+								echo "Memahami sintaks dasar PHP.";
+								break;
+							case 2:
+								echo "Menggunakan variabel dan konstanta.";
+								break;
+							case 3:
+								echo "Menerapkan operator dan percabangan.";
+								break;
+							case 4:
+								echo "Menggunakan perulangan for dan while.";
+								break;
+							default:
+								echo "Belum dipetakan";
+								break;
+						}
+						echo "</li>";
+					}
+					?>
+				</ol>
 
-        <!-- TENTANG -->
-        <section id="about">
-            <h2>Tentang Saya</h2>
+				<h3>Semester (Perulangan while):</h3>
+				<ol>
+					<?php
+					$nomorSemester = 1;
+					while ($nomorSemester <= 3) {
+						echo "<li>Semester " . $nomorSemester . "</li>";
+						$nomorSemester++; // operator penugasan
+					}
+					?>
+				</ol>
+			</article>
+		</section>
 
-            <p>
-                Nama: Ringo Zareka Ramadan
-            </p>
+		<section id="contact">
+			<h2>Kontak</h2>
 
-            <p>
-                NIM: 2611500062
-            </p>
+			<p>
+				Kunjungi
+				<?php if (PROFIL_GITHUB !== ""): ?>
+					<a target="_blank" rel="noopener noreferrer" href="https://github.com/<?= htmlspecialchars(PROFIL_GITHUB) ?>">profil GitHub saya</a>.
+				<?php else: ?>
+					profil GitHub saya (username belum diisi).
+				<?php endif; ?>
+			</p>
 
-            <p>
-                Kelompok: TI1A
-            </p>
+			<form id="contactForm" action="index.php" method="get" novalidate>
+				<div class="form-group">
+					<label for="nama">Nama Lengkap</label><br />
 
-            <h3>Pendidikan</h3>
+					<input
+						class="input-form"
+						type="text"
+						id="nama"
+						name="nama"
+						placeholder="Masukkan nama lengkap"
+						minlength="3"
+						maxlength="50"
+						required />
+				</div>
 
-            <ul>
-                <li>SMK</li>
-                <li>Universitas</li>
-            </ul>
+				<div class="form-group">
+					<label for="email">Email</label><br />
 
-            <h3>Keahlian</h3>
+					<input class="input-form" type="email" id="email" name="email" placeholder="nama@email.com" required />
+				</div>
 
-            <ul>
-                <li>HTML</li>
-                <li>Web</li>
-            </ul>
-        </section>
+				<div class="form-group">
+					<label for="semester">Semester</label><br />
 
-        <!-- FORM KONTAK -->
-        <section id="contact">
+					<input class="input-form" type="number" id="semester" name="semester" min="1" max="14" required />
+				</div>
 
-            <h2>Kontak</h2>
+				<div class="form-group">
+					<label for="tanggal">Tanggal Kunjungan</label><br />
 
-            <form action="index.html" method="get">
+					<input class="input-form" type="date" id="tanggal" name="tanggal" required />
+				</div>
 
-                <!-- Input text -->
-                <div class="form-group">
-                    <label for="nama">Nama Lengkap</label><br>
+				<div class="form-group">
+					<p>Jenis Pesan</p>
 
-                    <input
-                        class="input-form"
-                        type="text"
-                        id="nama"
-                        name="nama"
-                        minlength="3"
-                        maxlength="50"
-                        required
-                        placeholder="Masukkan nama lengkap"
-                    >
-                </div>
+					<input type="radio" id="pertanyaan" name="jenis_pesan" value="pertanyaan" required />
+					<label for="pertanyaan">Pertanyaan</label>
 
-                <!-- Input email -->
-                <div class="form-group">
-                    <label for="email">Email</label><br>
+					<input type="radio" id="saran" name="jenis_pesan" value="saran" />
+					<label for="saran">Saran</label>
+				</div>
 
-                    <input
-                        class="input-form"
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        placeholder="nama@email.com"
-                    >
-                </div>
+				<div class="form-group">
+					<p>Topik yang Diminati</p>
 
-                <!-- Input number -->
-                <div class="form-group">
-                    <label for="semester">Semester</label><br>
+					<input type="checkbox" id="minat-html" name="minat" value="HTML" />
+					<label for="minat-html">HTML</label>
 
-                    <input
-                        class="input-form"
-                        type="number"
-                        id="semester"
-                        name="semester"
-                        min="1"
-                        max="14"
-                        required
-                        placeholder="1 - 14"
-                    >
-                </div>
+					<input type="checkbox" id="minat-css" name="minat" value="CSS" />
+					<label for="minat-css">CSS</label>
+				</div>
 
-                <!-- Input date -->
-                <div class="form-group">
-                    <label for="tanggal">Tanggal Kunjungan</label><br>
+				<div class="form-group">
+					<label for="prodi">Program Studi</label><br />
 
-                    <input
-                        class="input-form"
-                        type="date"
-                        id="tanggal"
-                        name="tanggal"
-                        required
-                    >
-                </div>
+					<select class="input-form" id="prodi" name="prodi" required>
+						<option value="">-- Pilih Program Studi --</option>
+						<option value="SI">Sistem Informasi</option>
+						<option value="TI" selected>Teknik Informatika</option>
+					</select>
+				</div>
 
-                <!-- Radio -->
-                <div class="form-group">
-                    <label>Jenis Pesan</label><br>
+				<div class="form-group">
+					<label for="pesan">Pesan</label><br />
 
-                    <input
-                        type="radio"
-                        id="pertanyaan"
-                        name="jenis_pesan"
-                        value="pertanyaan"
-                        required
-                    >
-                    <label for="pertanyaan">Pertanyaan</label>
+					<textarea
+						class="input-form"
+						id="pesan"
+						name="pesan"
+						maxlength="300"
+						placeholder="Tulis pesan Anda"
+						required></textarea>
+				</div>
 
-                    <br>
+				<button type="submit">Kirim</button>
+				<button type="reset">Batal</button>
+				<p id="formFeedback"></p>
+			</form>
+		</section>
+	</main>
 
-                    <input
-                        type="radio"
-                        id="saran"
-                        name="jenis_pesan"
-                        value="saran"
-                    >
-                    <label for="saran">Saran</label>
-                </div>
-
-                <!-- Select -->
-                <div class="form-group">
-                    <label for="prodi">Program Studi</label><br>
-
-                    <select
-                        class="input-form"
-                        id="prodi"
-                        name="prodi"
-                        required
-                    >
-                        <option value="">-- Pilih Program Studi --</option>
-                        <option value="SI">Sistem Informasi</option>
-                        <option value="TI">Teknik Informatika</option>
-                    </select>
-                </div>
-
-                <!-- Checkbox -->
-                <div class="form-group">
-                    <input
-                        type="checkbox"
-                        id="minat"
-                        name="minat"
-                        value="HTML"
-                        required
-                    >
-
-                    <label for="minat">
-                        Saya tertarik dengan HTML
-                    </label>
-                </div>
-
-                <!-- Textarea -->
-                <div class="form-group">
-                    <label for="pesan">Pesan</label><br>
-
-                    <textarea
-                        id="pesan"
-                        name="pesan"
-                        rows="5"
-                        required
-                        placeholder="type your feedback here..."
-                    ></textarea>
-                </div>
-
-                <!-- Button -->
-                <button type="submit">
-                    Kirim
-                </button>
-            
-            <p id="form-feedback" aria-live="polite"></p>
-                <button type="reset">
-                    Batal
-                </button>
-
-            </form>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>
-            &copy; 2026 Ringo Zareka Ramadan - 2611500062
-        </p>
-    </footer>
-    <script src="script.js"></script>
+	<footer>
+		<p>&copy; <?= date("Y") ?> <?php echo $namaMahasiswa; ?> [<?= $nim ?>]</p>
+	</footer>
+	<script src="script.js"></script>
 </body>
 
 </html>
