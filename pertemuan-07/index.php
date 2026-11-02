@@ -1,17 +1,17 @@
 <?php
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
-$nim = "0344300002";
-$namaMahasiswa = "Cantika Putih";
-$programStudi = "SI";
+$nim = "2611500062";
+$namaMahasiswa = "Ringo Zareka Ramadan";
+$programStudi = "TI";
 $tahunAkademik = "2026/2027";
-$semester = 4;
-$ipk = 3.75;
+$semester = 1;
+$ipk = null;
 $statusAktif = true;
 $catatanTambahan = null;
 
 const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
-const PROFIL_GITHUB = "satpamal";
+const PROFIL_GITHUB = ""; // https://github.com/Ringozareka-r/2611500062-PWD-TI1A-2627-1
 
 // Bagian 2: Operator
 $batasSemester = 8;
@@ -82,7 +82,7 @@ switch ($programStudi) {
 			<h2>Selamat Datang</h2>
 			<p>Halo, saya <strong><?php echo $namaMahasiswa; ?></strong>. Saya sedang mempelajari matakuliah <strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo $tahunAkademik; ?>.</p>
 
-			<img src="img/foto-profil.jpg" alt="Foto profil Nama Mahasiswa" />
+			<img src="img/foto-profil.png" alt="Foto profil Ringo Zareka Ramadan" />
 		</section>
 
 		<section id="about">
@@ -96,7 +96,7 @@ switch ($programStudi) {
 				<p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
 				<p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
 				<p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
-				<p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
+				<p>IPK: <?php echo $ipk === null ? "Belum diisi" : number_format($ipk, 2, ',', '.'); ?></p>
 				<p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan; ?></p>
 
 				<h3>Target Belajar (Perulangan for)</h3>
@@ -145,7 +145,11 @@ switch ($programStudi) {
 
 			<p>
 				Kunjungi
-				<a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
+				<?php if (PROFIL_GITHUB !== ""): ?>
+					<a target="_blank" rel="noopener noreferrer" href="https://github.com/<?= htmlspecialchars(PROFIL_GITHUB) ?>">profil GitHub saya</a>.
+				<?php else: ?>
+					profil GitHub saya (username belum diisi).
+				<?php endif; ?>
 			</p>
 
 			<form id="contactForm" action="index.php" method="get" novalidate>
@@ -207,7 +211,7 @@ switch ($programStudi) {
 					<select class="input-form" id="prodi" name="prodi" required>
 						<option value="">-- Pilih Program Studi --</option>
 						<option value="SI">Sistem Informasi</option>
-						<option value="TI">Teknik Informatika</option>
+						<option value="TI" selected>Teknik Informatika</option>
 					</select>
 				</div>
 
