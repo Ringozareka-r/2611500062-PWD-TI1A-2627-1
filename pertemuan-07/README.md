@@ -1,9 +1,8 @@
-# Pertemuan 06 – Pemrograman Web Dasar
+# Pertemuan 07 – Pemrograman Web Dasar
 
-Project ini merupakan pengerjaan Pertemuan 6 (P6) mata kuliah Pemrograman Web Dasar.
+Project P7 melanjutkan halaman profil dari P6. Folder P6 tidak perlu diubah; letakkan folder `pertemuan-07` ini sejajar dengan folder `pertemuan-06`.
 
 ## Identitas
-
 - Nama: Ringo Zareka Ramadan
 - NIM: 2611500062
 - Program Studi: Teknik Informatika
@@ -11,39 +10,51 @@ Project ini merupakan pengerjaan Pertemuan 6 (P6) mata kuliah Pemrograman Web Da
 - Semester: 1
 - Tahun Akademik: 2026/2027
 
-## Isi Folder
+## Isi folder
+- `index.php` – halaman profil dan formulir utama dengan POST, validasi server, session, dan PRG.
+- `indexGet.php` – demonstrasi pengiriman data menggunakan GET.
+- `style.css` – tampilan halaman.
+- `script.js` – navigasi responsif dan pemeriksaan awal formulir di browser.
+- `img/` – tempat gambar profil.
 
-- `index.php` – halaman profil mahasiswa dan contoh penggunaan dasar PHP.
-- `style.css` – pengaturan tampilan halaman.
-- `script.js` – navigasi responsif dan validasi formulir.
-- `img/foto-profil.jpg` – gambar profil yang digunakan pada halaman.
+## Cara memasang di Laragon
+1. Pastikan Laragon sudah berjalan dan Apache aktif.
+2. Salin folder `pertemuan-07` ke dalam folder project di `C:\laragon\www\2611500062-PWD-TI1A-2627-1\`.
+3. Pastikan folder `img` berisi file `foto-profil.png`. Salin gambar yang sama dari folder `pertemuan-06/img/` jika belum ada.
+4. Buka `http://localhost/2611500062-PWD-TI1A-2627-1/pertemuan-07/`.
+5. Untuk demonstrasi GET, buka `http://localhost/2611500062-PWD-TI1A-2627-1/pertemuan-07/indexGet.php`.
 
-## Cara Menjalankan
+## Materi yang diterapkan
+1. GET memakai `$_GET` pada `indexGet.php`.
+2. POST memakai `$_POST` pada formulir utama.
+3. Normalisasi input menggunakan `trim()`.
+4. Validasi email menggunakan `filter_var()` dan validasi semester, tanggal, pilihan radio, checkbox, program studi, serta panjang pesan.
+5. Pengamanan keluaran HTML menggunakan `htmlspecialchars()` melalui fungsi `e()`.
+6. Pesan kesalahan, nilai formulir, dan hasil berhasil disimpan sementara menggunakan `$_SESSION`.
+7. Post-Redirect-Get dilakukan dengan `header("Location: index.php"); exit;` setelah POST diproses.
+8. Checkbox menggunakan nama `minat[]` agar pilihan diterima sebagai array.
 
-1. Pastikan Laragon sudah terpasang dan Apache sudah dijalankan.
-2. Salin folder project ini ke document root Laragon, biasanya `C:\laragon\www\`.
-3. Pastikan susunan foldernya menjadi `C:\laragon\www\2611500062-PWD-TI1A-2627\pertemuan-06\`.
-4. Buka browser, lalu akses:
+## Pengujian yang perlu dilakukan
+Lakukan melalui browser setelah Apache aktif:
+- Buka halaman utama dan pastikan tidak ada galat PHP.
+- Kirim data valid: nama minimal 3 karakter, email valid, semester 1–14, tanggal valid, pilih jenis pesan, minimal satu minat, program studi, dan pesan maksimal 300 karakter.
+- Pastikan halaman kembali ke `index.php` dan data hasil pemrosesan tampil.
+- Muat ulang halaman (Ctrl+R) dan pastikan browser tidak meminta pengiriman ulang POST.
+- Kirim data tidak valid (misalnya email salah atau semester 15) dan pastikan pesan kesalahan muncul serta nilai yang sudah diisi tetap tersedia.
+- Buka `indexGet.php`, kirim nama dan email, lalu amati parameter pada URL.
 
-   `http://localhost/2611500062-PWD-TI1A-2627/pertemuan-06/`
+**Catatan kejujuran pengujian:** file ini disusun berdasarkan struktur P6 di repository. Pengujian langsung di Laragon pada komputer pengguna belum dapat dilakukan dari sini. Isi bagian hasil pengujian di atas sesuai hasil yang benar-benar diperoleh saat dijalankan.
 
-## Materi yang Dikerjakan
+## Catatan gambar profil
+Repository P6 menggunakan `img/foto-profil.png`. Salin file tersebut ke folder `pertemuan-07/img/` agar gambar profil tampil. Folder `img` pada paket ini disiapkan untuk file tersebut.
 
-Pada halaman ini terdapat beberapa materi dasar PHP, yaitu:
 
-1. Membuat variabel dan konstanta.
-2. Menggunakan operator aritmetika, perbandingan, logika, dan ternary.
-3. Membuat percabangan `if`, `elseif`, `else`, dan `switch`.
-4. Menggunakan perulangan `for` dan `while`.
-5. Menampilkan angka menggunakan `number_format()`.
-6. Memeriksa nilai `null`.
-7. Menggunakan fungsi `date()` dan menampilkan copyright pada footer.
-8. Menghubungkan PHP dengan HTML.
-
-JavaScript tetap digunakan untuk membuka dan menutup navigasi serta memeriksa isian formulir.
-
-## Catatan Sebelum Dikumpulkan
-
-- Gambar profil masih menggunakan gambar bawaan dari file yang diberikan. Ganti `img/foto-profil.jpg` dengan foto sendiri jika diperlukan.
-- Username GitHub belum diisi. Jika ingin menampilkan tautan profil GitHub, buka `index.php` lalu isi konstanta `PROFIL_GITHUB` dengan username GitHub milik sendiri.
-- IPK dibuat belum diisi karena nilainya belum diberikan. Jika sudah ingin ditampilkan, isi variabel `$ipk` di `index.php`.
+## Menyimpan ke GitHub
+Setelah folder `pertemuan-07` diletakkan di dalam repository lokal:
+```bash
+git status
+git add pertemuan-07/
+git commit -m "feat: complete P7 form processing with PHP"
+git push
+```
+Perintah tersebut dijalankan dari folder utama repository. Pastikan hasil `git status` dan proses `git push` diperiksa sebelum menyatakan perubahan sudah terkirim ke GitHub.
