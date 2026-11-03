@@ -247,13 +247,56 @@ footer p {
     display: none;
   }
 }
-/* Memberikan jarak pada section peminjaman */
+/* =================================
+   SECTION PEMINJAMAN FASILITAS
+================================= */
+
 #peminjaman {
-    margin-bottom: 40px;
-    padding-bottom: 25px;
+    grid-column: 1 / -1;
+    width: 100%;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
-/* Memberikan jarak sebelum section Kontak */
+#peminjaman h2 {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#peminjaman label {
+    color: #1f2937;
+    font-weight: bold;
+}
+
+#peminjaman textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#peminjaman button {
+    background-color: #003366;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 18px;
+    margin: 8px 6px 0 0;
+    border: 1px solid #003366;
+    cursor: pointer;
+}
+
+#peminjaman button:hover,
+#contact button:hover {
+    background-color: #1f4e78;
+}
+
+/* Jarak dan tampilan section kontak */
+
 #contact {
-    margin-top: 30px;
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
 }

@@ -1,36 +1,116 @@
 <?php
 session_start();
 
-// P7: Memproses data formulir dan menyimpannya ke dalam session.
+
+// Memproses formulir Peminjaman dan Kontak.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-	$nama = trim((string) ($_POST["nama"] ?? ""));
-	$email = trim((string) ($_POST["email"] ?? ""));
-	$semesterForm = trim((string) ($_POST["semester"] ?? ""));
-	$tanggal = trim((string) ($_POST["tanggal"] ?? ""));
-	$jenisPesan = trim((string) ($_POST["jenis_pesan"] ?? ""));
-	$minat = $_POST["minat"] ?? [];
-	$prodi = trim((string) ($_POST["prodi"] ?? ""));
-	$pesan = trim((string) ($_POST["pesan"] ?? ""));
 
-	// Checkbox dapat mengirimkan lebih dari satu nilai.
-	if (!is_array($minat)) {
-		$minat = [];
-	}
+    // FORMULIR PEMINJAMAN
+    if (($_POST["form_type"] ?? "") === "peminjaman") {
 
-	// Menyimpan setiap nilai formulir ke dalam session secara terpisah.
-	$_SESSION["nama"] = $nama;
-	$_SESSION["email"] = $email;
-	$_SESSION["semester"] = $semesterForm;
-	$_SESSION["tanggal"] = $tanggal;
-	$_SESSION["jenis_pesan"] = $jenisPesan;
-	$_SESSION["minat"] = $minat;
-	$_SESSION["prodi"] = $prodi;
-	$_SESSION["pesan"] = $pesan;
+        // Mengambil dan membersihkan input
+        $namaPJ = trim((string) ($_POST["nama_penanggung_jawab"] ?? ""));
+        $namaPJ = preg_replace('/\s+/', ' ', $namaPJ);
 
-	// PRG: mencegah pengiriman POST berulang ketika halaman dimuat ulang.
-	header("Location: index.php#contact");
-	exit;
+        $jenisFasilitas = trim((string) ($_POST["jenis_fasilitas"] ?? ""));
+        $tanggalPinjam = trim((string) ($_POST["tanggal_peminjaman"] ?? ""));
+        $durasi = trim((string) ($_POST["durasi_peminjaman"] ?? ""));
+        $keperluan = trim((string) ($_POST["keperluan_peminjaman"] ?? ""));
+
+        $daftarFasilitas = [
+            "Ruang Kelas",
+            "Aula",
+            "Laboratorium Komputer",
+            "Proyektor"
+        ];
+
+        $errorsPeminjaman = [];
+
+        // Validasi nama
+        if (strlen($namaPJ) < 3 || strlen($namaPJ) > 50) {
+            $errorsPeminjaman[] = "Nama harus terdiri dari 3 sampai 50 karakter.";
+        }
+
+        // Validasi fasilitas
+        if (!in_array($jenisFasilitas, $daftarFasilitas, true)) {
+            $errorsPeminjaman[] = "Silakan pilih fasilitas yang tersedia.";
+        }
+
+        // Validasi tanggal
+        $tanggalValid = DateTime::createFromFormat('!Y-m-d', $tanggalPinjam);
+
+        if (
+            !$tanggalValid ||
+            $tanggalValid->format('Y-m-d') !== $tanggalPinjam
+        ) {
+            $errorsPeminjaman[] = "Tanggal peminjaman tidak valid.";
+        }
+
+        // Validasi durasi
+        if (
+            filter_var($durasi, FILTER_VALIDATE_INT) === false ||
+            (int) $durasi < 1 ||
+            (int) $durasi > 24
+        ) {
+            $errorsPeminjaman[] = "Durasi harus antara 1 sampai 24 jam.";
+        }
+
+        // Validasi keperluan
+        if ($keperluan === "" || strlen($keperluan) > 300) {
+            $errorsPeminjaman[] = "Keperluan wajib diisi maksimal 300 karakter.";
+        }
+
+        // Menyimpan data jika valid
+        if (empty($errorsPeminjaman)) {
+
+            $_SESSION["peminjaman"] = [
+                "nama" => $namaPJ,
+                "fasilitas" => $jenisFasilitas,
+                "tanggal" => $tanggalPinjam,
+                "durasi" => $durasi,
+                "keperluan" => $keperluan
+            ];
+
+            $_SESSION["errors_peminjaman"] = [];
+
+        } else {
+            $_SESSION["errors_peminjaman"] = $errorsPeminjaman;
+        }
+
+        // PRG: menghindari pengiriman ulang formulir
+        header("Location: index.php#peminjaman");
+        exit;
+
+    } else {
+
+        // FORMULIR KONTAK LAMA
+        $nama = trim((string) ($_POST["nama"] ?? ""));
+        $email = trim((string) ($_POST["email"] ?? ""));
+        $semesterForm = trim((string) ($_POST["semester"] ?? ""));
+        $tanggal = trim((string) ($_POST["tanggal"] ?? ""));
+        $jenisPesan = trim((string) ($_POST["jenis_pesan"] ?? ""));
+        $minat = $_POST["minat"] ?? [];
+        $prodi = trim((string) ($_POST["prodi"] ?? ""));
+        $pesan = trim((string) ($_POST["pesan"] ?? ""));
+
+        if (!is_array($minat)) {
+            $minat = [];
+        }
+
+        $_SESSION["nama"] = $nama;
+        $_SESSION["email"] = $email;
+        $_SESSION["semester"] = $semesterForm;
+        $_SESSION["tanggal"] = $tanggal;
+        $_SESSION["jenis_pesan"] = $jenisPesan;
+        $_SESSION["minat"] = $minat;
+        $_SESSION["prodi"] = $prodi;
+        $_SESSION["pesan"] = $pesan;
+
+        header("Location: index.php#contact");
+        exit;
+    }
 }
+
 
 // Mengamankan data sebelum ditampilkan kembali ke halaman HTML.
 // P6: PHP dasar dan pemrograman sisi peladen
@@ -175,12 +255,13 @@ switch ($programStudi) {
 			</article>
 		</section>
 
-		<section id="contact">
+		
 			
 <section id="peminjaman">
     <h2>Permohonan Peminjaman Fasilitas Kampus</h2>
 
     <form id="peminjamanForm" action="index.php" method="post">
+	<input type="hidden" name="form_type" value="peminjaman">
 
         <!-- Nama Penanggung Jawab -->
         <div class="form-group">
@@ -210,33 +291,12 @@ switch ($programStudi) {
 
                 <option value="">-- Pilih Fasilitas --</option>
 
-                <optgroup label="Ruangan">
-                    <option value="Ruang Kelas">Ruang Kelas</option>
-                    <option value="Aula">Aula</option>
-                    <option value="Ruang Seminar">Ruang Seminar</option>
-                </optgroup>
+                
+<option value="Ruang Kelas">Ruang Kelas</option>
+<option value="Aula">Aula</option>
+<option value="Laboratorium Komputer">Laboratorium Komputer</option>
+<option value="Proyektor">Proyektor</option>
 
-                <optgroup label="Laboratorium">
-                    <option value="Laboratorium Komputer">Laboratorium Komputer</option>
-                </optgroup>
-
-                <optgroup label="Perangkat Komputer">
-                    <option value="Laptop">Laptop</option>
-                    <option value="Komputer Desktop">Komputer Desktop</option>
-                </optgroup>
-
-                <optgroup label="Perangkat Presentasi">
-                    <option value="Proyektor">Proyektor</option>
-                    <option value="Layar Proyektor">Layar Proyektor</option>
-                </optgroup>
-
-                <optgroup label="Perangkat Lainnya">
-                    <option value="Printer">Printer</option>
-                    <option value="Speaker">Speaker</option>
-                    <option value="Mikrofon">Mikrofon</option>
-                </optgroup>
-
-                <option value="Lainnya">Lainnya (Tulis Sendiri)</option>
             </select>
         </div>
 
@@ -301,6 +361,45 @@ switch ($programStudi) {
     </form>
 </section>
 
+<?php if (!empty($_SESSION["errors_peminjaman"])): ?>
+
+    <div class="form-feedback-error">
+        <h3>Pengajuan Belum Berhasil</h3>
+
+        <?php foreach ($_SESSION["errors_peminjaman"] as $error): ?>
+            <p><?= htmlspecialchars($error, ENT_QUOTES, "UTF-8") ?></p>
+        <?php endforeach; ?>
+    </div>
+
+<?php elseif (!empty($_SESSION["peminjaman"])): ?>
+
+    <article class="submission-result">
+        <h3>Data Peminjaman Berhasil Dikirim</h3>
+
+        <p><strong>Nama Penanggung Jawab:</strong>
+            <?= htmlspecialchars($_SESSION["peminjaman"]["nama"], ENT_QUOTES, "UTF-8") ?>
+        </p>
+
+        <p><strong>Jenis Fasilitas:</strong>
+            <?= htmlspecialchars($_SESSION["peminjaman"]["fasilitas"], ENT_QUOTES, "UTF-8") ?>
+        </p>
+
+        <p><strong>Tanggal Peminjaman:</strong>
+            <?= htmlspecialchars($_SESSION["peminjaman"]["tanggal"], ENT_QUOTES, "UTF-8") ?>
+        </p>
+
+        <p><strong>Durasi Peminjaman:</strong>
+            <?= htmlspecialchars($_SESSION["peminjaman"]["durasi"], ENT_QUOTES, "UTF-8") ?> jam
+        </p>
+
+        <p><strong>Keperluan:</strong>
+            <?= htmlspecialchars($_SESSION["peminjaman"]["keperluan"], ENT_QUOTES, "UTF-8") ?>
+        </p>
+    </article>
+
+<?php endif; ?>
+
+   			<section id="contact">
 			<h2>Kontak</h2>
 
 			<p>
