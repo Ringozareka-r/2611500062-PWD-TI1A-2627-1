@@ -176,6 +176,131 @@ switch ($programStudi) {
 		</section>
 
 		<section id="contact">
+			
+<section id="peminjaman">
+    <h2>Permohonan Peminjaman Fasilitas Kampus</h2>
+
+    <form id="peminjamanForm" action="index.php" method="post">
+
+        <!-- Nama Penanggung Jawab -->
+        <div class="form-group">
+            <label for="nama_penanggung_jawab">
+                Nama Penanggung Jawab
+            </label>
+            <input
+                class="input-form"
+                type="text"
+                id="nama_penanggung_jawab"
+                name="nama_penanggung_jawab"
+                placeholder="Masukkan nama penanggung jawab"
+                minlength="3"
+                maxlength="50"
+                required>
+        </div>
+
+        <!-- Jenis Fasilitas -->
+        <div class="form-group">
+            <label for="jenis_fasilitas">Jenis Fasilitas</label>
+
+            <select
+                class="input-form"
+                id="jenis_fasilitas"
+                name="jenis_fasilitas"
+                required>
+
+                <option value="">-- Pilih Fasilitas --</option>
+
+                <optgroup label="Ruangan">
+                    <option value="Ruang Kelas">Ruang Kelas</option>
+                    <option value="Aula">Aula</option>
+                    <option value="Ruang Seminar">Ruang Seminar</option>
+                </optgroup>
+
+                <optgroup label="Laboratorium">
+                    <option value="Laboratorium Komputer">Laboratorium Komputer</option>
+                </optgroup>
+
+                <optgroup label="Perangkat Komputer">
+                    <option value="Laptop">Laptop</option>
+                    <option value="Komputer Desktop">Komputer Desktop</option>
+                </optgroup>
+
+                <optgroup label="Perangkat Presentasi">
+                    <option value="Proyektor">Proyektor</option>
+                    <option value="Layar Proyektor">Layar Proyektor</option>
+                </optgroup>
+
+                <optgroup label="Perangkat Lainnya">
+                    <option value="Printer">Printer</option>
+                    <option value="Speaker">Speaker</option>
+                    <option value="Mikrofon">Mikrofon</option>
+                </optgroup>
+
+                <option value="Lainnya">Lainnya (Tulis Sendiri)</option>
+            </select>
+        </div>
+
+        <!-- Fasilitas Lainnya -->
+        <div class="form-group" id="fasilitasLainnyaGroup" hidden>
+            <label for="fasilitas_lainnya">
+                Tuliskan Fasilitas yang Dibutuhkan
+            </label>
+            <input
+                class="input-form"
+                type="text"
+                id="fasilitas_lainnya"
+                name="fasilitas_lainnya"
+                placeholder="Contoh: Kamera, Tripod, dan lainnya"
+                maxlength="100">
+        </div>
+
+        <!-- Tanggal Peminjaman -->
+        <div class="form-group">
+            <label for="tanggal_peminjaman">Tanggal Peminjaman</label>
+            <input
+                class="input-form"
+                type="date"
+                id="tanggal_peminjaman"
+                name="tanggal_peminjaman"
+                required>
+        </div>
+
+        <!-- Durasi Peminjaman -->
+        <div class="form-group">
+            <label for="durasi_peminjaman">
+                Durasi Peminjaman (jam)
+            </label>
+            <input
+                class="input-form"
+                type="number"
+                id="durasi_peminjaman"
+                name="durasi_peminjaman"
+                min="1"
+                max="24"
+                placeholder="Contoh: 3"
+                required>
+        </div>
+
+        <!-- Keperluan Peminjaman -->
+        <div class="form-group">
+            <label for="keperluan_peminjaman">
+                Keperluan Peminjaman
+            </label>
+            <textarea
+                class="input-form"
+                id="keperluan_peminjaman"
+                name="keperluan_peminjaman"
+                placeholder="Jelaskan tujuan peminjaman fasilitas"
+                maxlength="300"
+                required></textarea>
+        </div>
+
+        <button type="submit">Kirim</button>
+        <button type="reset">Batal</button>
+
+    </form>
+</section>
+
 			<h2>Kontak</h2>
 
 			<p>
