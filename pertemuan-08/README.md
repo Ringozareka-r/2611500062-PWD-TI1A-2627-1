@@ -2,8 +2,9 @@
 
  melakukan perbaikan data pada artefak yang diberikan oleh dosen , berupa perubahan nama Dll
  menambahkan beberapa section ke dalam folmulir pendaftaran
- Nama Penanggung Jawab
-• Jenis Fasilitas
-• Tanggal Peminjaman
-• Durasi Peminjaman (jam)
-• Keperluan Peminjaman
+
+- Nama Penanggung Jawab
+- Jenis Fasilitas
+- Tanggal Peminjaman
+- Durasi Peminjaman (jam)
+- Keperluan Peminjaman
