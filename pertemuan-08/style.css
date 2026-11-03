@@ -247,6 +247,7 @@ footer p {
     display: none;
   }
 }
+
 /* =================================
    SECTION PEMINJAMAN FASILITAS
 ================================= */
@@ -254,18 +255,23 @@ footer p {
 #peminjaman {
     grid-column: 1 / -1;
     width: 100%;
+    padding: 25px;
+    margin-bottom: 25px;
     background-color: #f8fafc;
     border: 1px solid #cbd5e1;
-    padding: 20px;
-    margin-bottom: 30px;
 }
 
 #peminjaman h2 {
     color: #003366;
     border-bottom: 2px solid #003366;
-    padding-bottom: 6px;
+    padding-bottom: 10px;
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+#peminjaman .form-group {
+    width: 100%;
+    margin-bottom: 18px;
 }
 
 #peminjaman label {
@@ -273,14 +279,19 @@ footer p {
     font-weight: bold;
 }
 
+#peminjaman .input-form {
+    width: 100%;
+    max-width: 100%;
+}
+
 #peminjaman textarea {
-    min-height: 100px;
+    min-height: 130px;
     resize: vertical;
 }
 
 #peminjaman button {
     background-color: #003366;
-    color: #ffffff;
+    color: white;
     font-weight: bold;
     padding: 10px 18px;
     margin: 8px 6px 0 0;
@@ -288,34 +299,41 @@ footer p {
     cursor: pointer;
 }
 
-#peminjaman button:hover,
-#contact button:hover {
-    background-color: #1f4e78;
-}
+/* Hasil peminjaman */
 
-/* Jarak dan tampilan section kontak */
-
-#contact {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 20px;
-}
-/* Hasil pengajuan peminjaman */
 #peminjaman .submission-result {
+    display: block;
+    width: 100%;
     margin-top: 25px;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: 25px;
+    background-color: white;
     border: 1px solid #cbd5e1;
     border-left: 5px solid #003366;
+    border-radius: 6px;
 }
 
 #peminjaman .submission-result h3 {
     color: #003366;
     margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #003366;
 }
 
 #peminjaman .submission-result p {
-    line-height: 1.6;
+    line-height: 1.7;
+    padding: 8px 0;
+    margin: 0;
     border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 8px;
+}
+
+#peminjaman .submission-result p:last-child {
+    border-bottom: none;
+}
+
+/* Section Kontak */
+
+#contact {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
 }

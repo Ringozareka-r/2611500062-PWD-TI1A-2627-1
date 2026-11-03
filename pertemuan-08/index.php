@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Mengambil dan membersihkan input
         $namaPJ = trim((string) ($_POST["nama_penanggung_jawab"] ?? ""));
-        $namaPJ = preg_replace('/\s+/', ' ', $namaPJ);
+       $namaPJ = preg_replace('/\s+/', ' ', $namaPJ);
 
         $jenisFasilitas = trim((string) ($_POST["jenis_fasilitas"] ?? ""));
         $tanggalPinjam = trim((string) ($_POST["tanggal_peminjaman"] ?? ""));
