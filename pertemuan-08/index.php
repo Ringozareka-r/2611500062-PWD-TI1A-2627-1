@@ -103,12 +103,13 @@ switch ($programStudi) {
 		</div>
 
 		<nav>
-			<ul id="navMenu">
-				<li><a href="#home">Beranda</a></li>
-				<li><a href="#about">Tentang</a></li>
-				<li><a href="#contact">Kontak</a></li>
-			</ul>
-		</nav>
+    <ul id="navMenu">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#peminjaman">Peminjaman Fasilitas</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
+</nav>
 	</header>
 
 	<main>
