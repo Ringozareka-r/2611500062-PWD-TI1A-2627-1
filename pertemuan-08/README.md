@@ -8,3 +8,12 @@
 - Tanggal Peminjaman
 - Durasi Peminjaman (jam)
 - Keperluan Peminjaman
+
+### Pemrosesan Formulir Peminjaman
+
+- Menggunakan metode POST untuk menerima data.
+- Menggunakan SESSION untuk menyimpan data.
+- Menambahkan validasi input.
+- Menggunakan PRG untuk mencegah pengiriman ulang.
+- Menampilkan hasil pengajuan peminjaman.
+- mengubah loaksi Formulir peminjaman

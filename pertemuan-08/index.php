@@ -359,9 +359,7 @@ switch ($programStudi) {
         <button type="reset">Batal</button>
 
     </form>
-</section>
-
-<?php if (!empty($_SESSION["errors_peminjaman"])): ?>
+	<?php if (!empty($_SESSION["errors_peminjaman"])): ?>
 
     <div class="form-feedback-error">
         <h3>Pengajuan Belum Berhasil</h3>
@@ -398,6 +396,9 @@ switch ($programStudi) {
     </article>
 
 <?php endif; ?>
+</section>
+
+
 
    			<section id="contact">
 			<h2>Kontak</h2>
