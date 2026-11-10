@@ -1,6 +1,6 @@
-pada p7, saya melakukan:
+# Latihan Pertemuan 9
 
-1. menyalin artefak P6 untuk menjadi baseline P7
-2. menguji fitur pada P7, hasilnya jalan seperti P6.
-3. meremark event.preventDefault(); pada script.js dan mencoba superglobal $\_GET untuk menangkap nilai yang diisikan pada formulir.
-4. mencoba method post. hasilnya parameter tidak ditampilkan pada url, tetapi menggunakan echo superglobal $\_POST untuk menampilkan nilai dari input form.
+Pada pertemuan 9, saya melakukan:
+
+1. Menyalin artefak yang diberikan sebelumnya untuk digunakan kembali.
+2. Mengubah nama dan NIM sesuai data mahasiswa.
