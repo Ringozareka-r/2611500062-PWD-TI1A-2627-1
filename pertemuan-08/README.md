@@ -17,3 +17,5 @@
 - Menggunakan PRG untuk mencegah pengiriman ulang.
 - Menampilkan hasil pengajuan peminjaman.
 - mengubah loaksi Formulir peminjaman
+- mencoba merapikan hasil formulir yang di kirim 
+- Perbaiki kode pembersihan nama
