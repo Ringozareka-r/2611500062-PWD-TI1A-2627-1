@@ -1,6 +1,21 @@
 <?php
 session_start();
 
+// P9: Memuat fungsi buatan sendiri dari file terpisah.
+include "fungsi.php";
+
+// P9: Contoh perbedaan echo biasa dan echo dengan bersihkan().
+// Tanpa bersihkan(), tag HTML/JavaScript ikut dijalankan oleh browser.
+// Dengan bersihkan(), tag tersebut hanya tampil sebagai teks biasa.
+// echo "Belajar <b>PHP</b> itu seru";
+// echo bersihkan("Belajar <b>PHP</b> itu seru");
+// echo "<script>alert('Halo');</script>";
+// echo bersihkan("<script>alert('Halo');</script>");
+
+// P9: Contoh array biasa (indexed), indeks dimulai dari 0.
+$contohArray = ["HTML", "CSS", "JavaScript", "PHP"];
+// echo $contohArray[3]; // menampilkan "PHP"
+
 // P7: Memproses data formulir dan menyimpannya ke dalam session.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$nama = trim((string) ($_POST["nama"] ?? ""));
