@@ -283,16 +283,35 @@ switch ($programStudi) {
 			<?php if (isset($_SESSION["formData"])): ?>
 				<article id="hasilKontak" class="submission-result" aria-live="polite">
 					<h3>Data Formulir yang Dikirim</h3>
-					<p><strong>Nama Lengkap:</strong> <?= bersihkan($_SESSION["formData"]["nama"] ?? "") ?></p>
-					<p><strong>Email:</strong> <?= bersihkan($_SESSION["formData"]["email"] ?? "") ?></p>
-					<p><strong>Semester:</strong> <?= bersihkan($_SESSION["formData"]["semester"] ?? "") ?></p>
-					<p><strong>Tanggal Kunjungan:</strong> <?= bersihkan($_SESSION["formData"]["tanggal"] ?? "") ?></p>
-					<p><strong>Jenis Pesan:</strong> <?= bersihkan($_SESSION["formData"]["jenis_pesan"] ?? "") ?></p>
-					<p><strong>Topik yang Diminati:</strong>
-						<?= bersihkan(implode(", ", $_SESSION["formData"]["minat"] ?? [])) ?>
-					</p>
-					<p><strong>Program Studi:</strong> <?= bersihkan($_SESSION["formData"]["prodi"] ?? "") ?></p>
-					<p><strong>Pesan:</strong> <?= nl2br(bersihkan($_SESSION["formData"]["pesan"] ?? "")) ?></p>
+					<?php
+					// P9: Label tampilan untuk setiap key pada array formData.
+					$labels = [
+						"nama"        => "Nama Lengkap",
+						"email"       => "Email",
+						"semester"    => "Semester",
+						"tanggal"     => "Tanggal Kunjungan",
+						"jenis_pesan" => "Jenis Pesan",
+						"minat"       => "Topik yang Diminati",
+						"prodi"       => "Program Studi",
+						"pesan"       => "Pesan",
+					];
+
+					// P9: Menampilkan hasil formulir dengan perulangan foreach.
+					foreach ($labels as $key => $label):
+						$value = $_SESSION["formData"][$key] ?? "";
+
+						if ($key === "minat"):
+							// Checkbox berisi array, digabung menjadi teks.
+							$displayValue = bersihkan(is_array($value) ? implode(", ", $value) : "");
+						elseif ($key === "pesan"):
+							// Baris baru pada pesan diubah menjadi <br>.
+							$displayValue = nl2br(bersihkan($value));
+						else:
+							$displayValue = bersihkan($value);
+						endif;
+					?>
+						<p><?= tebal(bersihkan($label) . ":") ?> <?= $displayValue ?></p>
+					<?php endforeach; ?>
 				</article>
 			<?php endif; ?>
 		</section>
